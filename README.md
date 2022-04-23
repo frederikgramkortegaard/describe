@@ -14,7 +14,7 @@
 
 ### Table of Contents
 
-### About
+### How it works
 
 ### Installation
 
