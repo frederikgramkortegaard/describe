@@ -1,7 +1,11 @@
 """ Textual analysis of search queries """
 
+
+from nltk.sentiment import SentimentIntensityAnalyzer
 from typing import List, Dict
 import nltk
+
+sia = SentimentIntensityAnalyzer()
 
 def extract_tokens(text: str) -> List[str]:
     """Extracts tokens from a given text.
@@ -115,6 +119,18 @@ def stopwords(tokens: Dict) -> List[str]:
 
     return [w for w in tokens["words"][0] if w in nltk.corpus.stopwords.words('english')]
 
+def sentiment_analysis(text: str) -> Dict:
+    """ Sentiment analysis of a given text.
+
+    Args:
+        text: A string containing the input text
+    
+    Returns:
+        A dictionary containing the sentiment analysis polarity scores
+    """
+
+    # @TODO : Implement sentiment analysis
+    return sia.polarity_scores(text)
 
 # @TODO : Chunking seems really useful, try that.
 # https://www.nltk.org/book/ch07.html
@@ -138,6 +154,7 @@ def pipeline(text: str) -> Dict:
     metadata["frequencies"] = frequency_distribution(metadata["tokens"])
     metadata["n-grams"] = bi_and_tri_grams(metadata["tokens"])
     metadata["stopwords"] = stopwords(metadata["tokens"])
+    metadata["sentiment"] = sentiment_analysis(text)
 
     return metadata
 
