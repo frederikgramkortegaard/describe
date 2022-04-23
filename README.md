@@ -6,11 +6,11 @@
 
 ---- INSERT DEMO GIF HERE ----
 
-:pushpin: Data Science (ML, DL, NLP etc.)
+:pushpin: [Data Science (ML, DL, NLP etc.)](./DATASCIENCE.md)
 
-:pushpin: Platform Architecture, Microservices, and deployments
+:pushpin: [Platform Architecture, Microservices, and deployments](./ARCHITECTURE.md)
 
-:pushpin: Demos
+:pushpin: [Demos](./DEMOS.md)
 
 ### Table of Contents
 
