@@ -6,11 +6,12 @@ Based on object-detection, caption generation, and natural language processing t
 
 ---- INSERT DEMO GIF HERE ----
 
+:pushpin: [Demos](./DEMOS.md)
+
 :pushpin: [Data Science (ML, DL, NLP etc.)](./DATASCIENCE.md)
 
-:pushpin: [Platform Architecture, Microservices, and deployments](./ARCHITECTURE.md)
+:pushpin: [Platform Architecture, Microservices, and Deployments](./ARCHITECTURE.md)
 
-:pushpin: [Demos](./DEMOS.md)
 
 ### Table of Contents
 
