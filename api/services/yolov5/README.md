@@ -1,5 +1,5 @@
 # Service : YOLOv5
-Pipes a given base64 string through a YOLOv5 object detectio model and
+Pipes a given base64 string through a YOLOv5 object detection model and
     returns the results as a JSON object.
     
     Args:
