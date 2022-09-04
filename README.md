@@ -12,17 +12,3 @@
 
 :pushpin: [Demos](./DEMOS.md)
 
-### Table of Contents
-
-### How it works
-
-### Installation
-
-### Usage
-
-### How to Contribute   
-
-### Credits
-
-### License
-
