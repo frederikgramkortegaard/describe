@@ -1,8 +1,11 @@
 # app.py
 
 from fastapi import Request, FastAPI
-from requests import JSONDecodeError
 from fastapi import *
+
+from nltk.data import find
+word2vec_sample = str(find('models/word2vec_sample/pruned.word2vec.txt'))
+model = gensim.models.KeyedVectors.load_word2vec_format(word2vec_sample, binary=False)
 
 import uvicorn
 import json
@@ -39,7 +42,14 @@ async def run(info: Request):
     except JSONDecodeError:
         return {"status": "ERROR", "error": "Invalid metadata provided"}
 
-    return {"status": "SUCCESS", "similarity": 0.6}
+    # Caption Similarity
+    sim = sum([model.similarity(c,q) for (c,q) in zip(caption.split(' '), queries["query"].split(' '))]) / len(caption)
+    
+    # Object Similarity
+    #...
+
+
+    return {"status": "SUCCESS", "similarity": sim}
 
 
 if __name__ == "__main__":

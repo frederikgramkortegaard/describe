@@ -2,7 +2,6 @@
 
 from module_bindings import *
 from fastapi import Request, FastAPI
-from requests import JSONDecodeError
 from fastapi import *
 
 import uvicorn

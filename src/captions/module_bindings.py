@@ -4,15 +4,14 @@ from PIL import Image
 import os
 import pickle
 import numpy as np
-from keras.applications.xception import Xception, preprocess_input
-from keras.preprocessing.image import load_img, img_to_array
+
+from tensorflow.keras.applications.xception import Xception, preprocess_input
+from tensorflow.keras.preprocessing.image import load_img, img_to_array
 from keras.preprocessing.text import Tokenizer
-from keras.preprocessing.sequence import pad_sequences
-from keras.layers.merge import add
-from keras.models import Model, load_model
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.models import Model, load_model
 from tensorflow.keras.utils import to_categorical
 from keras.layers import Input, Dense, LSTM, Embedding, Dropout
-
 
 import matplotlib.pyplot as plt
 
@@ -37,9 +36,8 @@ def word_for_id(integer, tokenizer):
             return word
     return None
 
-def generate_desc(model, tokenizer, xception_model, photo, max_length=32):
 
-    photo = extract_features(photo, xception_model)
+def generate_desc(model, tokenizer, xception_model, photo, max_length=32):
 
     in_text = ''
     for i in range(max_length):
@@ -56,17 +54,14 @@ def generate_desc(model, tokenizer, xception_model, photo, max_length=32):
     return in_text
 
 model = None
-tokenizer = None
 xception = None
 
 def get_model():
 
     global model
-    global tokenizer
     global xception
 
-    if tokenizer == None:
-        tokenizer = pickle.load(open("tokenizer.p","rb"))
+    tokenizer = pickle.load(open('tokenizer.p', 'rb'))
 
     if model == None:
         model = load_model('model.h5')

@@ -1,12 +1,11 @@
 # app.py
 
 from fastapi import Request, FastAPI
-from requests import JSONDecodeError
 from fastapi import *
 
-from keras.applications.vgg16 import VGG16
-from keras.preprocessing.image import load_img, img_to_array
-from keras.applications.vgg16 import preprocess_input
+from tensorflow.keras.applications.vgg16 import VGG16
+from tensorflow.keras.preprocessing.image import load_img, img_to_array
+from tensorflow.keras.applications.vgg16 import preprocess_input
 from collections import OrderedDict
 from module_bindings import *
 from keras import models
@@ -49,6 +48,8 @@ async def run(info: Request):
         return {"STATUS": "ERROR", "error": "base64 field is missing"}
 
     base64_str = req_info["base64"]
+
+    return {"STATUS": "ERROR", "error": "issue on laptop, tokenizer doesnt have attribute analyzer"}
 
     # convert base64 to cv2 image
     img = decode_base64(base64_str)

@@ -63,10 +63,10 @@ def entity_recognition(tokens: Dict):
     entity_list = list()
 
     for sentence in tokens["sentences"]:
-        # @TODO : We already have pos_tag and work_tokenize data
         for chunk in nltk.ne_chunk(nltk.pos_tag(nltk.word_tokenize(sentence))):
             if hasattr(chunk, 'label'):
                 entity_list.append(chunk)
+
 
 
     return entity_list
@@ -160,4 +160,4 @@ def pipeline(text: str) -> Dict:
 
     # @TODO Success checks
 
-    return json.dumps(metadata, indent=4)
+    return metadata

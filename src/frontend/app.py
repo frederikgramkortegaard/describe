@@ -85,6 +85,11 @@ def search():
                     "caption": caption
                 }
 
+                caption_nlp = requests.get('http://127.0.0.1:8000', json={"query": metadata["caption"]}).json()
+                metadata["caption"].update(
+                    caption_nlp
+                )
+
                 similarity = requests.get('http://127.0.0.1:8003', json=metadata).json()["similarity"]
 
                 if similarity <= 0.5:
